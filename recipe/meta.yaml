@@ -1,21 +1,21 @@
 {% set name = "nlp-feature-extractors" %}
-{% set version = "0.1.0" %}
+{% set version = "0.1.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/nlp_feature_extractors-{{ version }}.tar.gz
-  sha256: a042ecfb2a6d2e890a79e47678f2b1032c393248dd1c6342b185051a0c9aeddf
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/nlp_feature_extractors-{{ version }}.tar.gz
+  sha256: d0b1cce74261086262037e7258489f7071106f66846e3eb32ca46966f0aa287d
 
 build:
   noarch: python
   script:
-   - cp -R {{ RECIPE_DIR }}/requirements.txt {{ SRC_DIR }}/requirements.txt  # [unix]
-   - echo f | xcopy /f /y /S %RECIPE_DIR%\requirements.txt %SRC_DIR%\requirements.txt  # [win]
-   - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+    - cp -R {{ RECIPE_DIR }}/requirements.txt {{ SRC_DIR }}/requirements.txt # [unix]
+    - echo f | xcopy /f /y /S %RECIPE_DIR%\requirements.txt %SRC_DIR%\requirements.txt # [win]
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   host:
